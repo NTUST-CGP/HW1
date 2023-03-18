@@ -1,14 +1,27 @@
 using UnityEngine;
-
+using UnityEngine.UI;
+[RequireComponent(typeof(AudioSource))]
 public class AudioController : MonoBehaviour
 {
-    void Start()
+    [SerializeField]private AudioClip _btnSoundEffect;
+    [SerializeField]private AudioSource _btnAudioSource;
+    [SerializeField]private AudioSource _bgmSource;
+    [SerializeField]private Slider _bgmSlider;
+    [SerializeField]private Slider _effectSlider;
+    public void MouseOnButtton()
     {
-        
+        _btnAudioSource.PlayOneShot(_btnSoundEffect);
     }
-
-    void Update()
+    public void AdjustBGMVolume()
     {
-        
+        _bgmSource.volume = _bgmSlider.value;
+    }
+    public void AdjustEffectVolume()
+    {
+        _btnAudioSource.volume = _effectSlider.value;
+    }
+    public void PlayerEffectSound()
+    {
+        _btnAudioSource.PlayOneShot(_btnSoundEffect);
     }
 }
