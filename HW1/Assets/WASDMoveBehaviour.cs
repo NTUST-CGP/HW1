@@ -21,6 +21,6 @@ public class WASDMoveBehaviour : MonoBehaviour
         transform.Translate(Vector3.forward * vertical * speed * Time.deltaTime);
 
         //rotate the tank left or right based on horizontal input
-        transform.Rotate(Mathf.Abs(Vertical).Vector3.up * horizontal * turnSpeed * Time.deltaTime);
+        transform.Rotate( (Vector3.up) * horizontal * turnSpeed * (vertical<0 ? -1.0f:1.0f) * Time.deltaTime);
     }
 }
